@@ -3,11 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.LoginFunctionController">
    <children>
-      <PasswordField layoutX="226.0" layoutY="224.0" />
-      <TextField layoutX="226.0" layoutY="144.0" />
-      <Label layoutX="136.0" layoutY="148.0" text="ID" />
-      <Label layoutX="136.0" layoutY="228.0" text="PassWord" />
+      <Button fx:id="loginButton" layoutX="274.0" layoutY="257.0" mnemonicParsing="false" onAction="#onButtonLoginAction" text="login" />
+      <PasswordField fx:id="PassWordtext" layoutX="226.0" layoutY="200.0" />
+      <TextField fx:id="IDtext" layoutX="226.0" layoutY="143.0" />
+      <Label layoutX="147.0" layoutY="147.0" text="ID" />
+      <Label layoutX="147.0" layoutY="204.0" text="PassWord" />
+      <Label fx:id="status" layoutX="286.0" layoutY="69.0" text="Label" />
+      <Button fx:id="returnButton" layoutX="34.0" layoutY="349.0" mnemonicParsing="false" onAction="#onButtonReturnAction" text="戻る" />
    </children>
-</AnchorPane>
+</Pane>
