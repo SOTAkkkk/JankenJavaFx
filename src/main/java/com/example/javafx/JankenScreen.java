@@ -8,11 +8,6 @@ import javafx.stage.Stage;
 public class JankenScreen {
     public void transitionScreen(String fxmlName, String fxmlTitle) {
         try {
-            System.out.println("じゃんけんしよう！");    //start
-            System.out.println("何を出す？");
-            System.out.println("0:グー，1:チョキ，2:パー");
-
-
             //FXMLからのシーングラフの読み込み
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlName));
             Parent root = loader.load();
