@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class HelloController{
+public class StartController {
 
     @FXML
     private Button closeButton;

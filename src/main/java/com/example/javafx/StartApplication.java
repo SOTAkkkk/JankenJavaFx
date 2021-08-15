@@ -6,11 +6,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class JankenApplication extends Application {
+public class StartApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //hello-view.fxmlの読み込み
-        FXMLLoader fxmlLoader = new FXMLLoader(JankenApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("Start.fxml"));
         //Sceneの作成・登録
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setTitle("ようこそ!");
