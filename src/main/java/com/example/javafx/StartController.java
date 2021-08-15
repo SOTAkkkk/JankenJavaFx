@@ -10,6 +10,8 @@ public class StartController {
     private Button closeButton;
     @FXML
     private Button nextButton;
+    @FXML
+    private Button loginButton;
 
     @FXML
     void onButtonCloseAction(ActionEvent event) {
@@ -20,6 +22,13 @@ public class StartController {
         nextButton.getScene().getWindow().hide();           //画面を閉じる
         JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
         screen.transitionScreen("JankenScreen.fxml", "画面2");   //画面を開く
+    }
+
+    @FXML
+    void onButtonLoginAction(ActionEvent event){
+        loginButton.getScene().getWindow().hide();
+        JankenScreen screen = new JankenScreen();
+        screen.transitionScreen("LoginFunction.fxml","login画面");
     }
 
 }

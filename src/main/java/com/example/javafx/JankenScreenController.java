@@ -38,7 +38,7 @@ public class JankenScreenController {
     void onButtonReturnAction(ActionEvent event) {
         returnButton.getScene().getWindow().hide();           //画面を閉じる
         JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
-        screen.transitionScreen("hello-view.fxml", "画面1");   //画面を開く
+        screen.transitionScreen("Start.fxml", "画面1");   //画面を開く
     }
     @FXML
     void onButtonGuAction(ActionEvent event) {
