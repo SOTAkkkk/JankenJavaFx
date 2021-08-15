@@ -7,6 +7,5 @@ public class visitorPlayer {
 
     static void makeHand(int a){
         visitorPlayerHand = a;
-        System.out.println("あなたの手は"+transfer.henkan(visitorPlayerHand)+"です");
     }
 }
