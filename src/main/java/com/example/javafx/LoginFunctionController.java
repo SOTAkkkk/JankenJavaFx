@@ -22,11 +22,13 @@ public class LoginFunctionController {
 
     @FXML
     void onButtonLoginAction(ActionEvent event) {
+
         if(IDtext.getText().equals("sota")&&PassWordtext.getText().equals("sota")) {
             status.setText(IDtext.getText() + "さんがログイン！！");
+
         }
         else{
-            status.setText("ログイン失敗");
+            status.setText("IDかPassWordが間違っています");
         }
     }
     @FXML
