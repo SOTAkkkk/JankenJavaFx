@@ -14,29 +14,30 @@ public class LoginFunctionController {
     @FXML
     private PasswordField PassWordtext;
     @FXML
-    private Button loginButton;
+    private Button LoginButton;
     @FXML
-    private Label status;
+    private Label StatusLabel;
     @FXML
-    private Button returnButton;
+    private Button ReturnButton;
 
     @FXML
-    void onButtonLoginAction(ActionEvent event) {
+    void onLoginButtonAction(ActionEvent event) {
 
         if(IDtext.getText().equals("sota")&&PassWordtext.getText().equals("sota")) {
-            status.setText(IDtext.getText() + "さんがログイン！！");
-            loginButton.getScene().getWindow().hide();           //画面を閉じる
+            StatusLabel.setText(IDtext.getText() + "さんがログイン！！");
+            LoginButton.getScene().getWindow().hide();           //画面を閉じる
             JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
             screen.transitionScreen("Start.fxml", "さんがログイン");   //画面を開く
         }
         else{
-            status.setText("IDかPassWordが間違っています");
+            StatusLabel.setText("IDかPassWordが間違っています");
         }
     }
     @FXML
-    void onButtonReturnAction(ActionEvent event) {
-        returnButton.getScene().getWindow().hide();           //画面を閉じる
+    void onReturnButtonAction(ActionEvent event) {
+        ReturnButton.getScene().getWindow().hide();           //画面を閉じる
         JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
         screen.transitionScreen("Start.fxml", "画面1");   //画面を開く
     }
+
 }

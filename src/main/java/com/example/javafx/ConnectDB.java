@@ -39,9 +39,11 @@ public class ConnectDB {
 
                 System.out.println(GetData.getString("id"));
             }
+            /*
             String addsql = "insert into test(id,name,pass) values('2','sota','sota');";
             int num = conn.createStatement().executeUpdate(addsql);
 
+             */
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

@@ -7,26 +7,26 @@ import javafx.scene.control.*;
 public class StartController {
 
     @FXML
-    private Button closeButton;
+    private Button CloseButton;
     @FXML
-    private Button nextButton;
+    private Button NextButton;
     @FXML
-    private Button loginButton;
+    private Button LoginButton;
 
     @FXML
-    void onButtonCloseAction(ActionEvent event) {
-        closeButton.getScene().getWindow().hide();          //画面を閉じる
+    void onCloseButtonAction(ActionEvent event) {
+        CloseButton.getScene().getWindow().hide();          //画面を閉じる
     }
     @FXML
-    void onButtonNextAction(ActionEvent event) {
-        nextButton.getScene().getWindow().hide();           //画面を閉じる
+    void onNextButtonAction(ActionEvent event) {
+        NextButton.getScene().getWindow().hide();           //画面を閉じる
         JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
         screen.transitionScreen("JankenScreen.fxml", "画面2");   //画面を開く
     }
 
     @FXML
-    void onButtonLoginAction(ActionEvent event){
-        loginButton.getScene().getWindow().hide();
+    void onLoginButtonAction(ActionEvent event){
+        LoginButton.getScene().getWindow().hide();
         JankenScreen screen = new JankenScreen();
         screen.transitionScreen("LoginFunction.fxml","login画面");
     }

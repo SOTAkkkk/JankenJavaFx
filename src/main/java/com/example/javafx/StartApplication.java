@@ -10,7 +10,7 @@ public class StartApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //hello-view.fxmlの読み込み
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("Start.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("Entrance.fxml"));
         //Sceneの作成・登録
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setTitle("ようこそ!");
