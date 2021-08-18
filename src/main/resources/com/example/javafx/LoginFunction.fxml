@@ -10,7 +10,7 @@
       <TextField fx:id="IDtext" layoutX="226.0" layoutY="143.0" />
       <Label layoutX="147.0" layoutY="147.0" text="ID" />
       <Label layoutX="147.0" layoutY="204.0" text="PassWord" />
-      <Label fx:id="StatusLabel" layoutX="286.0" layoutY="69.0" text="Label" />
+      <Label fx:id="StatusLabel" layoutX="216.0" layoutY="73.0" text="IDとPassWordを入力してください" />
       <Button fx:id="ReturnButton" layoutX="34.0" layoutY="349.0" mnemonicParsing="false" onAction="#onReturnButtonAction" text="戻る" />
    </children>
 </Pane>
