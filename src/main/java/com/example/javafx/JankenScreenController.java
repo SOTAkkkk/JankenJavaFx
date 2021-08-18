@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 public class JankenScreenController {
 
     @FXML
+    private TextField IDtext;
+    @FXML
     private Button closeButton;
     @FXML
     private Button returnButton;
@@ -19,6 +21,8 @@ public class JankenScreenController {
     @FXML
     private Label cpuText;
 
+    @FXML
+    private Label status;
 
     @FXML
     private Button guButton;
@@ -29,7 +33,10 @@ public class JankenScreenController {
     @FXML
     private Button paButton;
 
-
+    @FXML
+    void main(){
+        status.setText(IDtext.getText() + "さんがログイン！！");
+    }
     @FXML
     void onButtonCloseAction(ActionEvent event) {
         closeButton.getScene().getWindow().hide();          //画面を閉じる

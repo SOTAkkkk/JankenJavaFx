@@ -25,7 +25,9 @@ public class LoginFunctionController {
 
         if(IDtext.getText().equals("sota")&&PassWordtext.getText().equals("sota")) {
             status.setText(IDtext.getText() + "さんがログイン！！");
-
+            loginButton.getScene().getWindow().hide();           //画面を閉じる
+            JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
+            screen.transitionScreen("Start.fxml", "さんがログイン");   //画面を開く
         }
         else{
             status.setText("IDかPassWordが間違っています");
