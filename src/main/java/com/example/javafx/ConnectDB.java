@@ -6,7 +6,12 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 public class ConnectDB {
+
+    public static String name;
+    public static String password;
+    public static int maxwin;
 
     //DB接続用定数
     static String DATABASE_NAME = "test_db";
@@ -44,7 +49,7 @@ public class ConnectDB {
         }
     }
 
-    public static void DB_Signin(String name,String password,int maxwin) {
+    public static void DB_Signin() {
 
         try {
             //MySQL に接続する
