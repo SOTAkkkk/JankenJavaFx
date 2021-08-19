@@ -22,17 +22,19 @@ public class SigninFunctionController {
 
     @FXML
     void onSigninButtonAction(ActionEvent event) {
-        ConnectDB.name = IDtext.getText();
-        ConnectDB.password = PassWordtext.getText();
 
-        if(ConnectDB.name.isEmpty()||ConnectDB.password.isEmpty()) {
+
+        if(IDtext.getText().isEmpty()||PassWordtext.getText().isEmpty()) {
             StatusLabel.setText("IDかPassWordが間違っています");
         }
+        else if(ConnectDB.DB_Exists(IDtext.getText())>=1){
+            StatusLabel.setText("同じIDが使用されています");
+        }
         else{
-
             //DBにIDとPass追加
             ConnectDB.DB_Signin();
-
+            visitorPlayer.name = IDtext.getText();
+            visitorPlayer.password = PassWordtext.getText();
             StatusLabel.setText(IDtext.getText() + "さんがログイン！！");
             SigninButton.getScene().getWindow().hide();           //画面を閉じる
             JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備

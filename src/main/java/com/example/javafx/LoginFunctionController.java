@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.sql.ResultSet;
-
 public class LoginFunctionController {
 
     @FXML
@@ -25,15 +23,15 @@ public class LoginFunctionController {
     @FXML
     void onLoginButtonAction(ActionEvent event) {
 
-        int count=ConnectDB.DB_Exists(IDtext.getText(),PassWordtext.getText());
+        int count=ConnectDB.DB_Count(IDtext.getText(),PassWordtext.getText());
         System.out.println("Login");
         if(count>=1) {
-            ConnectDB.name = IDtext.getText();
-            ConnectDB.password = PassWordtext.getText();
-            StatusLabel.setText(ConnectDB.name + "さんがログイン！！");
+            visitorPlayer.name = IDtext.getText();
+            visitorPlayer.password = PassWordtext.getText();
+            StatusLabel.setText(visitorPlayer.name + "さんがログイン！！");
             LoginButton.getScene().getWindow().hide();           //画面を閉じる
             JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
-            screen.transitionScreen("Start.fxml", ConnectDB.name+"さんがログイン");   //画面を開く
+            screen.transitionScreen("Start.fxml", visitorPlayer.name+"さんがログイン");   //画面を開く
         }
         else{
             StatusLabel.setText("IDかPassWordが間違っています");

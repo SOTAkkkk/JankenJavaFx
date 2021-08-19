@@ -11,9 +11,7 @@ import java.sql.ResultSet;
 
 public class ConnectDB {
 
-    public static String name;
-    public static String password;
-    public static int maxwin;
+
 
     //DB接続用定数
     static String DATABASE_NAME = "test_db";
@@ -67,9 +65,9 @@ public class ConnectDB {
 
             String Signsql = "INSERT INTO test (NAME,PASSWORD,MAXWIN) VALUES(?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(Signsql);
-            stmt.setString(1,name);
-            stmt.setString(2,password);
-            stmt.setInt(3,maxwin);
+            stmt.setString(1,visitorPlayer.name);
+            stmt.setString(2,visitorPlayer.password);
+            stmt.setInt(3,visitorPlayer.maxwin);
             int num = stmt.executeUpdate();
 
 
@@ -79,8 +77,9 @@ public class ConnectDB {
 
     }
 
-    public static int DB_Exists(String tmp_name, String tmp_pass) {//存在したら1を返す
-        ResultSet st ;
+    public static int DB_Count(String tmp_name, String tmp_pass) {//入力された（NAMEとPASSWORDが合致した）アカウントの数を返す
+
+
         int count=0;
         try {
             //MySQL に接続する
@@ -99,14 +98,40 @@ public class ConnectDB {
             PreparedStatement stmt = conn.prepareStatement(Existssql);
             stmt.setString(1,tmp_name);
             stmt.setString(2,tmp_pass);
+            ResultSet st;
             st=stmt.executeQuery();
             while(st.next())
                 count=st.getInt(1);
-            System.out.println(count);
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return count;
+    }
+
+    public static int DB_Exists(String tmp_name) {//存在したら1を返す
+        int exists=0;
+        try {
+            //MySQL に接続する
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //データベースに接続
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            // データベースに対する処理
+            System.out.println("データベースに接続に成功");
+
+
+            String Existssql = "(SELECT COUNT(*) FROM test WHERE NAME = ? ) ";
+            PreparedStatement stmt = conn.prepareStatement(Existssql);
+            stmt.setString(1,tmp_name);
+            ResultSet st;
+            st=stmt.executeQuery();
+            while(st.next())
+                exists=st.getInt(1);
+            System.out.println(exists);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return exists;
     }
 }

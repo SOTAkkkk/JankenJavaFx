@@ -35,7 +35,7 @@ public class JankenScreenController {
 
     @FXML
     void label(){
-        status.setText(ConnectDB.name + "さんがログイン！！");
+        status.setText(visitorPlayer.name + "さんがログイン！！");
     }
     @FXML
     void onButtonCloseAction(ActionEvent event) {
