@@ -66,7 +66,6 @@ public class ConnectDB {
             stmt.setInt(3,0);
             stmt.setInt(4,0);
             int num = stmt.executeUpdate();
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
