@@ -1,6 +1,5 @@
 package com.example.javafx;
 
-import com.sun.javafx.collections.ElementObservableListDecorator;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
