@@ -35,7 +35,7 @@
          </children></VBox>
       <ToolBar maxWidth="120.0" minWidth="120.0" prefHeight="36.0" prefWidth="120.0">
         <items>
-            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onButtonReturnAction" text="Return" />
+            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onButtonReturnAction" text="戻る" />
                   <Button fx:id="closeButton" mnemonicParsing="false" onAction="#onButtonCloseAction" text="閉じる" />
         </items>
       </ToolBar>

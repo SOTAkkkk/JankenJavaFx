@@ -27,6 +27,5 @@
             <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
          </padding></Button>
       <Button fx:id="CloseButton" mnemonicParsing="false" onAction="#onCloseButtonAction" text="閉じる" />
-      <Button fx:id="LoginButton" mnemonicParsing="false" onAction="#onLoginButtonAction" text="login" />
    </children>
 </VBox>
