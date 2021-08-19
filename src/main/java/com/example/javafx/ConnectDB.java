@@ -102,8 +102,6 @@ public class ConnectDB {
             st=stmt.executeQuery();
             while(st.next())
                 count=st.getInt(1);
-
-            System.out.println("ConnectDB"+st);
             System.out.println(count);
 
         } catch (SQLException | ClassNotFoundException e) {
