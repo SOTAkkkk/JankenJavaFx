@@ -8,17 +8,17 @@ import java.sql.ResultSet;
 
 public class ConnectDB {
 
-    public static void DB() {
-        //DB接続用定数
-        String DATABASE_NAME = "test_db";
-        String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME;
-        //DB接続用・ユーザ定数
-        String USER = "root";
-        String PASS = "sota";
+    //DB接続用定数
+    static String DATABASE_NAME = "test_db";
+    static String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME;
+    //DB接続用・ユーザ定数
+    static String USER = "root";
+    static String PASS = "sota";
+
+    public static void DB_ref() {
 
         PreparedStatement SendSQL = null;
         ResultSet GetData = null;
-
 
         try {
             //MySQL に接続する
@@ -36,14 +36,36 @@ public class ConnectDB {
 
             // データ取得したレコードの表示
             while (GetData.next()) {
-
-                System.out.println(GetData.getString("id"));
+                System.out.println(GetData.getString("NAME"));
             }
-            /*
-            String addsql = "insert into test(id,name,pass) values('2','sota','sota');";
-            int num = conn.createStatement().executeUpdate(addsql);
 
-             */
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void DB_Signin(String name,String password,int maxwin) {
+
+        try {
+            //MySQL に接続する
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //データベースに接続
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            // データベースに対する処理
+            System.out.println("データベースに接続に成功");
+
+                        // パラメータ付きSQL文をDBに送るためのオブジェクト生成
+            //String Signinsql = "insert into test values(name,password,maxwin);";
+            //conn.createStatement().execute(Signinsql);
+
+            String Signsql = "INSERT INTO test (NAME,PASSWORD,MAXWIN) VALUES(?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(Signsql);
+            stmt.setString(1,name);
+            stmt.setString(2,password);
+            stmt.setInt(3,maxwin);
+            int num = stmt.executeUpdate();
+
+
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

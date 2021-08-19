@@ -17,7 +17,7 @@ public class StartApplication extends Application {
         stage.setScene(scene);
         //表示
         stage.show();
-        ConnectDB.DB();
+        ConnectDB.DB_ref();
     }
 
     public static void main(String[] args) {
