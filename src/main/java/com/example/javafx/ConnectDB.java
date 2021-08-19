@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
 public class ConnectDB {
 
     //DB接続用定数
@@ -60,13 +59,13 @@ public class ConnectDB {
             //String Signinsql = "insert into test values(name,password,maxwin);";
             //conn.createStatement().execute(Signinsql);
 
-            String Signsql = "INSERT INTO test (NAME,PASSWORD,MAXWIN) VALUES(?,?,?)";
+            String Signsql = "INSERT INTO test (NAME,PASSWORD,MAXWIN,NOWWIN) VALUES(?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(Signsql);
             stmt.setString(1,visitorPlayer.name);
             stmt.setString(2,visitorPlayer.password);
-            stmt.setInt(3,visitorPlayer.maxwin);
+            stmt.setInt(3,0);
+            stmt.setInt(4,0);
             int num = stmt.executeUpdate();
-
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -75,7 +74,6 @@ public class ConnectDB {
     }
 
     public static int DB_Count(String tmp_name, String tmp_pass) {//入力された（NAMEとPASSWORDが合致した）アカウントの数を返す
-
 
         int count=0;
         try {
@@ -129,5 +127,32 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return exists;
+    }
+
+    public static void DB_Reflesh() {//データ反映
+        try {
+            //MySQL に接続する
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //データベースに接続
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            // データベースに対する処理
+            System.out.println("データベースに接続に成功");
+            String Deletesql = "DELETE FROM test WHERE NAME =?";
+            PreparedStatement stmt = conn.prepareStatement(Deletesql);
+            stmt.setString(1,visitorPlayer.name);
+            int num = stmt.executeUpdate();
+
+
+            String Refleshsql = "INSERT INTO test (NAME,PASSWORD,MAXWIN,NOWWIN) VALUES(?,?,?,?)";
+            stmt = conn.prepareStatement(Refleshsql);
+            stmt.setString(1,visitorPlayer.name);
+            stmt.setString(2,visitorPlayer.password);
+            stmt.setInt(3,visitorPlayer.maxwin);
+            stmt.setInt(4,visitorPlayer.nowwin);
+            num = stmt.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

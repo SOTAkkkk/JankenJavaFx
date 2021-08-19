@@ -6,6 +6,7 @@ public class visitorPlayer {
     public static String name;
     public static String password;
     public static int maxwin;
+    public static int nowwin;
 
     public static int visitorPlayerHand;
 

@@ -10,7 +10,7 @@
         <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
     </padding>
    <children>
-      <Label />
+      <Label fx:id="Status" />
       <Label fx:id="helloLabel" alignment="CENTER" contentDisplay="CENTER" text="じゃんけんjava" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="23.0" />

@@ -23,7 +23,6 @@ public class SigninFunctionController {
     @FXML
     void onSigninButtonAction(ActionEvent event) {
 
-
         if(IDtext.getText().isEmpty()||PassWordtext.getText().isEmpty()) {
             StatusLabel.setText("IDかPassWordが間違っています");
         }
@@ -39,7 +38,7 @@ public class SigninFunctionController {
             StatusLabel.setText(IDtext.getText() + "さんがログイン！！");
             SigninButton.getScene().getWindow().hide();           //画面を閉じる
             JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
-            screen.transitionScreen("Start.fxml", "さんがログイン");   //画面を開く
+            screen.transitionScreen("Start.fxml", visitorPlayer.name+"さんがログイン");   //画面を開く
 
         }
     }

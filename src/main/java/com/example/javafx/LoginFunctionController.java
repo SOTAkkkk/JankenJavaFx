@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.text.BreakIterator;
+
 public class LoginFunctionController {
 
     @FXML
@@ -26,6 +28,7 @@ public class LoginFunctionController {
         int count=ConnectDB.DB_Count(IDtext.getText(),PassWordtext.getText());
         System.out.println("Login");
         if(count>=1) {
+
             visitorPlayer.name = IDtext.getText();
             visitorPlayer.password = PassWordtext.getText();
             StatusLabel.setText(visitorPlayer.name + "さんがログイン！！");

@@ -22,9 +22,6 @@ public class JankenScreenController {
     private Label cpuText;
 
     @FXML
-    private Label status;
-
-    @FXML
     private Button guButton;
 
     @FXML
@@ -33,10 +30,7 @@ public class JankenScreenController {
     @FXML
     private Button paButton;
 
-    @FXML
-    void label(){
-        status.setText(visitorPlayer.name + "さんがログイン！！");
-    }
+
     @FXML
     void onButtonCloseAction(ActionEvent event) {
         closeButton.getScene().getWindow().hide();          //画面を閉じる
