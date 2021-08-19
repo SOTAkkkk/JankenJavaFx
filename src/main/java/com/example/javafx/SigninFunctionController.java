@@ -22,15 +22,19 @@ public class SigninFunctionController {
 
     @FXML
     void onSigninButtonAction(ActionEvent event) {
-
-        if(IDtext.getText().equals("sota")&&PassWordtext.getText().equals("sota")) {
+        String ID = IDtext.getText();
+        String PassWord = PassWordtext.getText();
+        if(ID.isEmpty()||PassWord.isEmpty()) {
+            StatusLabel.setText("IDかPassWordが間違っています");
+        }
+        else{
             StatusLabel.setText(IDtext.getText() + "さんがログイン！！");
             SigninButton.getScene().getWindow().hide();           //画面を閉じる
             JankenScreen screen = new JankenScreen();                       //画面を開く(メソッド呼び出し)の準備
             screen.transitionScreen("Start.fxml", "さんがログイン");   //画面を開く
-        }
-        else{
-            StatusLabel.setText("IDかPassWordが間違っています");
+
+            //DBにIDとPass追加
+
         }
     }
     @FXML
