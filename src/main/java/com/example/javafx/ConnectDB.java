@@ -127,7 +127,6 @@ public class ConnectDB {
             st=stmt.executeQuery();
             while(st.next())
                 exists=st.getInt(1);
-            System.out.println(exists);
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
