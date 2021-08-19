@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 
 public class ConnectDB {
 
-
-
     //DB接続用定数
     static String DATABASE_NAME = "test_db";
     static String URL = "jdbc:mySQL://localhost/" + DATABASE_NAME;
