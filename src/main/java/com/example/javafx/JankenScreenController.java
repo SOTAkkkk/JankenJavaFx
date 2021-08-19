@@ -34,8 +34,8 @@ public class JankenScreenController {
     private Button paButton;
 
     @FXML
-    void main(){
-        status.setText(IDtext.getText() + "さんがログイン！！");
+    void label(){
+        status.setText(ConnectDB.name + "さんがログイン！！");
     }
     @FXML
     void onButtonCloseAction(ActionEvent event) {

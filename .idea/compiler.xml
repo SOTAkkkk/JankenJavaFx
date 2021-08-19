@@ -13,4 +13,9 @@
       <module name="javafx" target="16" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="javafx" options="--add-exports javafx.base/com.sun.javafx.collections=com.example.javafx" />
+    </option>
+  </component>
 </project>

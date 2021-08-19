@@ -1,5 +1,7 @@
 package com.example.javafx;
 
+import com.sun.javafx.collections.ElementObservableListDecorator;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -75,5 +77,38 @@ public class ConnectDB {
             e.printStackTrace();
         }
 
+    }
+
+    public static int DB_Exists(String tmp_name, String tmp_pass) {//存在したら1を返す
+        ResultSet st ;
+        int count=0;
+        try {
+            //MySQL に接続する
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            //データベースに接続
+            Connection conn = DriverManager.getConnection(URL, USER, PASS);
+            // データベースに対する処理
+            System.out.println("データベースに接続に成功");
+
+            // パラメータ付きSQL文をDBに送るためのオブジェクト生成
+            //String Signinsql = "insert into test values(name,password,maxwin);";
+            //conn.createStatement().execute(Signinsql);
+
+            String Existssql = "(SELECT COUNT(*) FROM test WHERE NAME = ? AND PASSWORD = ?) ";
+            //String Existssql = "SELECT EXISTS(SELECT 1 FROM test WHERE NAME = ?);";
+            PreparedStatement stmt = conn.prepareStatement(Existssql);
+            stmt.setString(1,tmp_name);
+            stmt.setString(2,tmp_pass);
+            st=stmt.executeQuery();
+            while(st.next())
+                count=st.getInt(1);
+
+            System.out.println("ConnectDB"+st);
+            System.out.println(count);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }
